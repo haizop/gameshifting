@@ -9,7 +9,11 @@
     "test": "mocha './frontend/spec/**/*-spec.js' --require './frontend/spec/spec-helper.js' --compilers js:babel-core/register",
     "postinstall": "npm run prod"
   },
-  "author": "",
+  "author": "Haiz Oppenheimer",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/haizop/gameshifting"
+  },
   "license": "MIT",
   "devDependencies": {
     "webpack-dev-server": "1.14.0"
