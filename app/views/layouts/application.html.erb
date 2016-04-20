@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gameshifting</title>
+  <%= env_stylesheet_link_tag 'main-bundle', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<%= env_javascript_include_tag 'main-bundle' %>
+</body>
+</html>
