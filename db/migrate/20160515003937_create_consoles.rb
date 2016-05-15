@@ -4,6 +4,7 @@ class CreateConsoles < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.references :user
+      t.json :default_set
 
       t.timestamps null: false
     end
