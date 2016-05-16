@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :setting do
-
+  factory :session_user do
+    
   end
 
 end

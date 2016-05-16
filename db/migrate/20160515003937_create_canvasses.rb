@@ -3,8 +3,7 @@ class CreateCanvasses < ActiveRecord::Migration
     create_table :canvasses do |t|
       t.string :name
       t.text :description
-      t.references :user
-      t.json :default_set
+      t.json :default_gameset
 
       t.timestamps null: false
     end

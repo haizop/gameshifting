@@ -3,8 +3,7 @@ class CreateSettings < ActiveRecord::Migration
     create_table :settings do |t|
       t.string :name
       t.text :description
-      t.references :panel
-      t.references :user
+      t.references :panel, index: true
 
       t.timestamps null: false
     end

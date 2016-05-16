@@ -3,9 +3,7 @@ class CreatePanels < ActiveRecord::Migration
     create_table :panels do |t|
       t.string :name
       t.text :description
-      t.references :console
-      t.references :user
-      t.json :default_set
+      t.json :default_gameset
 
       t.timestamps null: false
     end

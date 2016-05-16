@@ -1,18 +1,14 @@
 # == Schema Information
 #
-# Table name: consoles
+# Table name: canvasses
 #
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :text
-#  user_id     :integer
-#  default_set :json
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string
+#  description     :text
+#  default_gameset :json
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class Canvass < ActiveRecord::Base
-  belongs_to :user
-  has_many :panels
-  has_many :settings, through: :game_shifts
 end
