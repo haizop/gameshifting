@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :change do
+  factory :game_shift do
     
   end
 

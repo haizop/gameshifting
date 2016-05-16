@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe Toggle, type: :model do
+RSpec.describe Canvass, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

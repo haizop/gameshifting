@@ -1,4 +1,4 @@
 class Session < ActiveRecord::Base
-  belongs_to :user
-  has_many :changes
+  has_many :users, through: :session_roles
+  has_many :game_shifts
 end

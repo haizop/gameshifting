@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :console do
-    
+  factory :canvass do
+
   end
 
 end
