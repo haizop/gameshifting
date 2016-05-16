@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20160516211505) do
 
   create_table "game_shifts", force: :cascade do |t|
     t.integer  "session_id"
-    t.json     "current_gameset"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.json     "game_set"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "game_shifts", ["session_id"], name: "index_game_shifts_on_session_id", using: :btree
