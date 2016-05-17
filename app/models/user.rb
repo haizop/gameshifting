@@ -27,5 +27,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :sessions, through: :session_roles
+
+  has_many :session_users, dependent: :destroy
+  has_many :sessions, through: :session_users
 end
