@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: sessions
+# Table name: dynamics
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -9,8 +9,6 @@
 #  updated_at  :datetime         not null
 #
 
-class Session < ActiveRecord::Base
-  has_many :session_users, dependent: :destroy
-  has_many :users, through: :session_users
-  has_many :game_shifts, dependent: :destroy
+class Dynamic < ActiveRecord::Base
+  belongs_to :panel
 end

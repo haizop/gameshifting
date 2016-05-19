@@ -28,6 +28,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :session_users, dependent: :destroy
-  has_many :sessions, through: :session_users
+  has_many :game_users, dependent: :destroy
+  has_many :games, through: :game_users
 end

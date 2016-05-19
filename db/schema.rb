@@ -11,68 +11,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516211505) do
+ActiveRecord::Schema.define(version: 20160519163942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "canvass_panels", force: :cascade do |t|
+    t.integer  "canvass_id"
+    t.integer  "panel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "canvass_panels", ["canvass_id"], name: "index_canvass_panels_on_canvass_id", using: :btree
+  add_index "canvass_panels", ["panel_id"], name: "index_canvass_panels_on_panel_id", using: :btree
+
   create_table "canvasses", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.json     "default_gameset"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "dynamics", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "game_shifts", force: :cascade do |t|
-    t.integer  "session_id"
+    t.integer  "game_id"
     t.json     "game_set"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "game_shifts", ["session_id"], name: "index_game_shifts_on_session_id", using: :btree
+  add_index "game_shifts", ["game_id"], name: "index_game_shifts_on_game_id", using: :btree
 
-  create_table "panels", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.json     "default_gameset"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "session_users", force: :cascade do |t|
+  create_table "game_users", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "session_id"
+    t.integer  "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "session_users", ["session_id"], name: "index_session_users_on_session_id", using: :btree
-  add_index "session_users", ["user_id"], name: "index_session_users_on_user_id", using: :btree
+  add_index "game_users", ["game_id"], name: "index_game_users_on_game_id", using: :btree
+  add_index "game_users", ["user_id"], name: "index_game_users_on_user_id", using: :btree
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "settings", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
+  create_table "panel_dynamics", force: :cascade do |t|
     t.integer  "panel_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "dynamic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "settings", ["panel_id"], name: "index_settings_on_panel_id", using: :btree
+  add_index "panel_dynamics", ["dynamic_id"], name: "index_panel_dynamics_on_dynamic_id", using: :btree
+  add_index "panel_dynamics", ["panel_id"], name: "index_panel_dynamics_on_panel_id", using: :btree
 
-  create_table "todos", force: :cascade do |t|
-    t.text     "note",                       null: false
-    t.boolean  "completed",  default: false, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+  create_table "panels", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

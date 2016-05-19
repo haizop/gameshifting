@@ -2,8 +2,8 @@ module V1
   class GameShiftsController < ApplicationController
 
     def create
-      session = Session.find(params[:session_id])
-      game_shift = session.game_shifts.new(game_set: game_set)
+      game = Game.find(params[:game_id])
+      game_shift = game.game_shifts.new(game_set: game_set)
       if game_shift.save
         render json: game_shift
       else
@@ -12,7 +12,7 @@ module V1
     end
 
     def index
-      game_shifts = GameShift.where("session_id = ?", params[:session_id])
+      game_shifts = GameShift.where("game_id = ?", params[:game_id])
       render json: game_shifts
     end
 

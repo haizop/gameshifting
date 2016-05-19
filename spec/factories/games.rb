@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: panels
+# Table name: games
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -10,8 +10,8 @@
 #
 
 FactoryGirl.define do
-  factory :panel do
-    
+  factory :game do
+
   end
 
 end

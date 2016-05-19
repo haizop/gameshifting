@@ -1,20 +1,20 @@
 # == Schema Information
 #
-# Table name: session_users
+# Table name: game_users
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
-#  session_id :integer
+#  game_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_session_users_on_session_id  (session_id)
-#  index_session_users_on_user_id     (user_id)
+#  index_game_users_on_game_id  (game_id)
+#  index_game_users_on_user_id     (user_id)
 #
 
-class SessionUser < ActiveRecord::Base
+class GameUser < ActiveRecord::Base
   belongs_to :user
-  belongs_to :session
+  belongs_to :game
 end

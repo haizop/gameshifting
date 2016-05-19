@@ -1,8 +1,9 @@
-class CreateSessions < ActiveRecord::Migration
+class CreateDynamics < ActiveRecord::Migration
   def change
-    create_table :sessions do |t|
+    create_table :dynamics do |t|
       t.string :name
       t.text :description
+
       t.timestamps null: false
     end
   end

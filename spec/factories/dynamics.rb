@@ -1,9 +1,8 @@
 # == Schema Information
 #
-# Table name: sessions
+# Table name: dynamics
 #
 #  id          :integer          not null, primary key
-#  user_id     :integer
 #  name        :string
 #  description :text
 #  created_at  :datetime         not null
@@ -11,8 +10,8 @@
 #
 
 FactoryGirl.define do
-  factory :session do
-    
+  factory :dynamic do
+
   end
 
 end
