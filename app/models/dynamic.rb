@@ -10,5 +10,6 @@
 #
 
 class Dynamic < ActiveRecord::Base
-  belongs_to :panel
+  has_many :panel_dynamics, dependent: :destroy
+  has_many :panels, through: :panel_dynamics
 end
