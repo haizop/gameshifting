@@ -3,6 +3,7 @@ class CreatePanels < ActiveRecord::Migration
     create_table :panels do |t|
       t.string :name
       t.text :description
+      t.json :default_state
 
       t.timestamps null: false
     end

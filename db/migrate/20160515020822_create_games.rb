@@ -3,6 +3,7 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.string :name
       t.text :description
+      t.integer :activated_dynamics, array: true
 
       t.timestamps null: false
     end

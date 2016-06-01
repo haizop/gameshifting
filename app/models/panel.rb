@@ -10,5 +10,9 @@
 #
 
 class Panel < ActiveRecord::Base
-  has_many :dynamics
+  has_many :canvass_panels
+  has_many :canvasses, through: :canvass_panels
+  
+  has_many :panel_dynamics
+  has_many :dynamics, through: :panel_dynamics
 end

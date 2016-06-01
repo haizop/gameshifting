@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+// import { connect } from 'react-redux';
+// import * as actions from '../actions';
 import TodoList from '../components/todo-list';
 
 const App = (props) => {
@@ -10,6 +10,8 @@ const App = (props) => {
     </div>
   );
 };
+
+export default App;
 
 // connect with automatic mapping
 // ------------------------------
@@ -32,25 +34,25 @@ const App = (props) => {
 // verbose connect
 // ---------------
 
-export default connect(
-  (state) => ({
-    inputValue: state.inputValue,
-    todos: state.todos,
-    errorMessage: state.errorMessage
-  }),
-  (dispatch) => ({
-    actions: {
-      addTodo: () => {
-        dispatch(actions.addTodo());
-      },
-
-      toggleTodo: (index) => {
-        dispatch(actions.toggleTodo(index));
-      },
-
-      updateInput: (value) => {
-        dispatch(actions.updateInput(value));
-      }
-    }
-  })
-)(App);
+// export default connect(
+//   (state) => ({
+//     inputValue: state.inputValue,
+//     todos: state.todos,
+//     errorMessage: state.errorMessage
+//   }),
+//   (dispatch) => ({
+//     actions: {
+//       addTodo: () => {
+//         dispatch(actions.addTodo());
+//       },
+//
+//       toggleTodo: (index) => {
+//         dispatch(actions.toggleTodo(index));
+//       },
+//
+//       updateInput: (value) => {
+//         dispatch(actions.updateInput(value));
+//       }
+//     }
+//   })
+// )(App);
