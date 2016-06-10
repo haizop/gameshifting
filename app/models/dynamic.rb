@@ -12,4 +12,6 @@
 class Dynamic < ActiveRecord::Base
   has_many :panel_dynamics, dependent: :destroy
   has_many :panels, through: :panel_dynamics
+
+  validates :name, presence: true
 end

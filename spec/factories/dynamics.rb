@@ -11,7 +11,8 @@
 
 FactoryGirl.define do
   factory :dynamic do
-
+    name "test dynamic"
+    description "testing 123"
   end
 
 end
