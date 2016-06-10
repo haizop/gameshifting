@@ -15,14 +15,12 @@ class Game < ActiveRecord::Base
 
   has_many :game_users, dependent: :destroy
   has_many :users, through: :game_users
-  
+
   has_many :game_shifts, dependent: :destroy
 
-  private
+  validates :name, presence: true
 
-  def create_game_shift
-    self.game_shifts.create
-  end
+  private
 
   def current_state
     self.game_shifts.last
