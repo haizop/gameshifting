@@ -15,7 +15,7 @@
 
 FactoryGirl.define do
   factory :game_shift do
-    
+    association :game
   end
 
 end

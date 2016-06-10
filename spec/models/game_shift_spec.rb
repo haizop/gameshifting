@@ -14,3 +14,13 @@
 #
 
 require 'rails_helper'
+
+RSpec.describe GameShift, type: :model do
+  it "has a valid factory" do
+    expect(build(:game_shift)).to be_valid
+  end
+
+  describe 'association' do
+    it { should belong_to(:game) }
+  end
+end
