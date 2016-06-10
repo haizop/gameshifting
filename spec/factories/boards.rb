@@ -12,7 +12,18 @@
 
 FactoryGirl.define do
   factory :board do
-    
+    name 'test board'
+    description 'testing board 123'
+    default_state {{
+        'panel_1' => {
+          'id' => '1',
+          'name' => 'panel_1',
+        },
+        'panel_2' => {
+          'id' => '2',
+          'name' => 'panel_2',
+        }
+      }}
   end
 
 end
