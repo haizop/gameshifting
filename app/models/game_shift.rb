@@ -16,4 +16,6 @@
 
 class GameShift < ActiveRecord::Base
   belongs_to :game
+
+  validates :game, :game_state, presence: true
 end

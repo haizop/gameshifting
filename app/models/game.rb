@@ -11,7 +11,6 @@
 #
 
 class Game < ActiveRecord::Base
-  after_create :create_game_shift
 
   has_many :game_users, dependent: :destroy
   has_many :users, through: :game_users

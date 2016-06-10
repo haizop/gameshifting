@@ -24,4 +24,9 @@ RSpec.describe GameShift, type: :model do
   describe 'association' do
     it { should belong_to(:game) }
   end
+
+  describe 'validation' do
+    it { should validate_presence_of(:game)}
+    it { should validate_presence_of(:game_state)}
+  end
 end

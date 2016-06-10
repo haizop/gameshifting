@@ -17,6 +17,7 @@
 FactoryGirl.define do
   factory :game_shift do
     association :game
+    game_state {{ 'dynamic_1' => 'test dynamic' }}
   end
 
 end
