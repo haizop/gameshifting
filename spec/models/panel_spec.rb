@@ -13,5 +13,19 @@
 require 'rails_helper'
 
 RSpec.describe Panel, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory" do
+    expect(build(:panel)).to be_valid
+  end
+
+  describe  'validation' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:default_state) }
+  end
+
+  describe 'association' do
+    it { should have_many(:board_panels).dependent(:destroy) }
+    it { should have_many(:boards) }
+    it { should have_many(:panel_dynamics).dependent(:destroy) }
+    it { should have_many(:dynamics) }
+  end
 end

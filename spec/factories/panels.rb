@@ -12,7 +12,20 @@
 
 FactoryGirl.define do
   factory :panel do
-    
+    name 'test panel'
+    description 'testing panel 123'
+    default_state {{
+        'dynamic_1' => {
+          'id' => '1',
+          'name' => 'dynamic_1',
+          'state' => 'active'
+        },
+        'dynamic_2' => {
+          'id' => '2',
+          'name' => 'dynamic_2',
+          'state' => 'inactive'
+        }
+      }}
   end
 
 end

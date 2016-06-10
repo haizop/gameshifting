@@ -16,4 +16,6 @@ class Panel < ActiveRecord::Base
 
   has_many :panel_dynamics, dependent: :destroy
   has_many :dynamics, through: :panel_dynamics
+
+  validates :name, :default_state, presence: true
 end
