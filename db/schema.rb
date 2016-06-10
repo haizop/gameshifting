@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160601161248) do
 
   create_table "game_shifts", force: :cascade do |t|
     t.integer  "game_id"
-    t.json     "game_state"
+    t.jsonb    "game_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
