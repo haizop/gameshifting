@@ -16,7 +16,8 @@
 
 FactoryGirl.define do
   factory :panel_dynamic do
-    
+    association :panel
+    association :dynamic
   end
 
 end
