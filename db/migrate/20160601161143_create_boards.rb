@@ -3,7 +3,7 @@ class CreateBoards < ActiveRecord::Migration
     create_table :boards do |t|
       t.string :name
       t.text :description
-      t.json :default_state
+      t.json :default_setup
 
       t.timestamps null: false
     end

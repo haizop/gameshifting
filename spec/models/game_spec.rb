@@ -26,6 +26,6 @@ RSpec.describe Game, type: :model do
   describe 'association' do
     it { should have_many(:game_users).dependent(:destroy) }
     it { should have_many(:users) }
-    it { should have_many(:game_shifts).dependent(:destroy) }
+    it { should have_many(:board_states).dependent(:destroy) }
   end
 end

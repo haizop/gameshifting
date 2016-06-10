@@ -5,7 +5,7 @@
 #  id            :integer          not null, primary key
 #  name          :string
 #  description   :text
-#  default_state :json
+#  default_setup :json
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
@@ -14,7 +14,7 @@ FactoryGirl.define do
   factory :panel do
     name 'test panel'
     description 'testing panel 123'
-    default_state {{
+    default_setup {{
         'dynamic_1' => {
           'id' => '1',
           'name' => 'dynamic_1',

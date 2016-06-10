@@ -1,4 +1,4 @@
-# GameShifting
+# BoardStateing
 
 This app is a Rails + React implementation of Gameshifting, an interactive tool and group meeting process, developed by Emerging Leader Labs and Agile Learning Centers.
 

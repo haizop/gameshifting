@@ -15,13 +15,13 @@ class Game < ActiveRecord::Base
   has_many :game_users, dependent: :destroy
   has_many :users, through: :game_users
 
-  has_many :game_shifts, dependent: :destroy
+  has_many :board_states, dependent: :destroy
 
   validates :name, presence: true
 
   private
 
   def current_state
-    self.game_shifts.last
+    self.setups.last
   end
 end

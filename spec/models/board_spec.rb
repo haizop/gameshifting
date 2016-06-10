@@ -5,7 +5,7 @@
 #  id            :integer          not null, primary key
 #  name          :string
 #  description   :text
-#  default_state :json
+#  default_setup :json
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
@@ -19,7 +19,7 @@ RSpec.describe Board, type: :model do
 
   describe  'validation' do
     it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:default_state) }
+    it { should validate_presence_of(:default_setup) }
   end
 
   describe 'association' do

@@ -5,7 +5,7 @@
 #  id            :integer          not null, primary key
 #  name          :string
 #  description   :text
-#  default_state :json
+#  default_setup :json
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
@@ -17,5 +17,5 @@ class Panel < ActiveRecord::Base
   has_many :panel_dynamics, dependent: :destroy
   has_many :dynamics, through: :panel_dynamics
 
-  validates :name, :default_state, presence: true
+  validates :name, :default_setup, presence: true
 end

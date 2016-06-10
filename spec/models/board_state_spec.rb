@@ -1,24 +1,24 @@
 # == Schema Information
 #
-# Table name: game_shifts
+# Table name: board_states
 #
 #  id         :integer          not null, primary key
 #  game_id    :integer
-#  game_state :jsonb            not null
+#  setup      :jsonb            not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_game_shifts_on_game_id     (game_id)
-#  index_game_shifts_on_game_state  (game_state)
+#  index_board_states_on_game_id  (game_id)
+#  index_board_states_on_setup    (setup)
 #
 
 require 'rails_helper'
 
-RSpec.describe GameShift, type: :model do
+RSpec.describe BoardState, type: :model do
   it "has a valid factory" do
-    expect(build(:game_shift)).to be_valid
+    expect(build(:setup)).to be_valid
   end
 
   describe 'association' do
@@ -27,6 +27,6 @@ RSpec.describe GameShift, type: :model do
 
   describe 'validation' do
     it { should validate_presence_of(:game)}
-    it { should validate_presence_of(:game_state)}
+    it { should validate_presence_of(:setup)}
   end
 end
