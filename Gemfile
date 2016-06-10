@@ -4,12 +4,12 @@ gem 'rails', '4.2.5'
 ruby '2.3.0'
 
 gem 'active_model_serializers', '0.8.3'
-gem 'annotate'
 gem 'devise'
 gem 'foreman'
 gem 'pg', '~> 0.15'
 
 group :development do
+  gem 'annotate'
   gem 'web-console', '~> 2.0'
 end
 

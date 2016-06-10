@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  game_id    :integer
-#  game_set   :json
+#  game_state :json
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

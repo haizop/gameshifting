@@ -11,26 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519163942) do
+ActiveRecord::Schema.define(version: 20160601161248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "canvass_panels", force: :cascade do |t|
-    t.integer  "canvass_id"
+  create_table "board_panels", force: :cascade do |t|
+    t.integer  "board_id"
     t.integer  "panel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "canvass_panels", ["canvass_id"], name: "index_canvass_panels_on_canvass_id", using: :btree
-  add_index "canvass_panels", ["panel_id"], name: "index_canvass_panels_on_panel_id", using: :btree
+  add_index "board_panels", ["board_id"], name: "index_board_panels_on_board_id", using: :btree
+  add_index "board_panels", ["panel_id"], name: "index_board_panels_on_panel_id", using: :btree
 
-  create_table "canvasses", force: :cascade do |t|
+  create_table "boards", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.json     "default_state"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "dynamics", force: :cascade do |t|
@@ -42,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160519163942) do
 
   create_table "game_shifts", force: :cascade do |t|
     t.integer  "game_id"
-    t.json     "game_set"
+    t.json     "game_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,8 +63,9 @@ ActiveRecord::Schema.define(version: 20160519163942) do
   create_table "games", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "activated_dynamics",              array: true
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "panel_dynamics", force: :cascade do |t|
@@ -79,8 +81,9 @@ ActiveRecord::Schema.define(version: 20160519163942) do
   create_table "panels", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.json     "default_state"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
