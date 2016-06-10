@@ -16,7 +16,8 @@
 
 FactoryGirl.define do
   factory :board_panel do
-    
+    association :board
+    association :panel
   end
 
 end

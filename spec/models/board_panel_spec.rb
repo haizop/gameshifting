@@ -15,3 +15,19 @@
 #
 
 require 'rails_helper'
+
+RSpec.describe BoardPanel, type: :model do
+  it "has a valid factory" do
+    expect(build(:board_panel)).to be_valid
+  end
+
+  describe  'validation' do
+    it { should validate_presence_of(:board) }
+    it { should validate_presence_of(:panel) }
+  end
+
+  describe 'association' do
+    it { should belong_to(:board) }
+    it { should belong_to(:panel) }
+  end
+end
