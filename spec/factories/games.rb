@@ -14,6 +14,10 @@ FactoryGirl.define do
   factory :game do
     name "test game"
     description "I am a game"
+
+    factory :invalid_game do
+      name nil
+    end
   end
 
 end

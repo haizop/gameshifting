@@ -40,7 +40,7 @@ module V1
     end
 
     def game_params
-      params.require(:game).permit(:id, :name, :description)
+      params.require(:game).permit(:name, :description)
     end
   end
 end
