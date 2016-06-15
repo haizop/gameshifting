@@ -1,5 +1,3 @@
-require 'json'
-
 class GameShift
 
   def initialize(game, params)
@@ -15,6 +13,6 @@ class GameShift
   private
 
   def create_game_state
-    @game_state = @game.game_states.create!(@params)
+    @game_state = @game.game_states.create!(setup: @params)
   end
 end
