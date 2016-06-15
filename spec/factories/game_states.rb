@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: board_states
+# Table name: game_states
 #
 #  id         :integer          not null, primary key
 #  game_id    :integer
@@ -10,12 +10,12 @@
 #
 # Indexes
 #
-#  index_board_states_on_game_id  (game_id)
-#  index_board_states_on_setup    (setup)
+#  index_game_states_on_game_id  (game_id)
+#  index_game_states_on_setup    (setup)
 #
 
 FactoryGirl.define do
-  factory :board_state do
+  factory :game_state do
     association :game
     setup {{ 'dynamic_1' => 'test dynamic' }}
   end

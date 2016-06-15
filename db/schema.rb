@@ -26,16 +26,6 @@ ActiveRecord::Schema.define(version: 20160601161248) do
   add_index "board_panels", ["board_id"], name: "index_board_panels_on_board_id", using: :btree
   add_index "board_panels", ["panel_id"], name: "index_board_panels_on_panel_id", using: :btree
 
-  create_table "board_states", force: :cascade do |t|
-    t.integer  "game_id"
-    t.jsonb    "setup",      default: {}, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "board_states", ["game_id"], name: "index_board_states_on_game_id", using: :btree
-  add_index "board_states", ["setup"], name: "index_board_states_on_setup", using: :gin
-
   create_table "boards", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -50,6 +40,16 @@ ActiveRecord::Schema.define(version: 20160601161248) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "game_states", force: :cascade do |t|
+    t.integer  "game_id"
+    t.jsonb    "setup",      default: {}, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "game_states", ["game_id"], name: "index_game_states_on_game_id", using: :btree
+  add_index "game_states", ["setup"], name: "index_game_states_on_setup", using: :gin
 
   create_table "game_users", force: :cascade do |t|
     t.integer  "user_id"

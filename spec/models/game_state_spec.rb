@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: board_states
+# Table name: game_states
 #
 #  id         :integer          not null, primary key
 #  game_id    :integer
@@ -10,13 +10,13 @@
 #
 # Indexes
 #
-#  index_board_states_on_game_id  (game_id)
-#  index_board_states_on_setup    (setup)
+#  index_game_states_on_game_id  (game_id)
+#  index_game_states_on_setup    (setup)
 #
 
 require 'rails_helper'
 
-RSpec.describe BoardState, type: :model do
+RSpec.describe GameState, type: :model do
   it "has a valid factory" do
     expect(build(:setup)).to be_valid
   end

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: board_states
+# Table name: game_states
 #
 #  id         :integer          not null, primary key
 #  game_id    :integer
@@ -10,11 +10,11 @@
 #
 # Indexes
 #
-#  index_board_states_on_game_id  (game_id)
-#  index_board_states_on_setup    (setup)
+#  index_game_states_on_game_id  (game_id)
+#  index_game_states_on_setup    (setup)
 #
 
-class BoardState < ActiveRecord::Base
+class GameState < ActiveRecord::Base
   belongs_to :game
 
   validates :game, :setup, presence: true

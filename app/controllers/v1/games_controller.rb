@@ -19,7 +19,7 @@ module V1
     end
 
     def show
-      setup = current_game.board_states.last.setup
+      setup = current_game.game_states.last.setup
       render json: {game: current_game, setup: setup}
     end
 
