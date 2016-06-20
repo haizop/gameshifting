@@ -24,7 +24,7 @@ module V1
     private
 
     def game_shift_params
-
+      params.require(:game_state).permit(:setup)
     end
   end
 end

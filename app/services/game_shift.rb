@@ -1,8 +1,8 @@
 class GameShift
 
-  def initialize(game, params)
+  def initialize(game, setup)
     @game = game
-    @params = params
+    @setup = setup
     create_game_state
   end
 
@@ -13,6 +13,6 @@ class GameShift
   private
 
   def create_game_state
-    @game_state = @game.game_states.create!(setup: @params)
+    @game_state = @game.game_states.create!(setup: @setup)
   end
 end
