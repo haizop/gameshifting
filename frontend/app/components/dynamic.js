@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-
-class Dynamic extends React.Component {
-
-  render() {
-    return (
-      <div>Dynamic</div>
-    );
-  }
+const Dynamic = (props) => {
+  return (
+    <li>
+      {props.name}
+    </li>
+  );
 }
+
+export default Dynamic;
