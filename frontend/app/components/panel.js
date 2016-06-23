@@ -5,7 +5,7 @@ const Panel = (props) => {
   const dynamics = props.dynamics
 
   return (
-    <ol>
+    <ol className="panel">
       {dynamics}
     </ol>
   );

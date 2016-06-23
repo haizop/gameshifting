@@ -4,7 +4,7 @@ const Dynamic = (props) => {
   const dynamic = props.dynamic
 
   return (
-    <li>
+    <li className="dynamic">
       {dynamic.name}
     </li>
   );
