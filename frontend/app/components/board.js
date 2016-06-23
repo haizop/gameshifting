@@ -6,7 +6,7 @@ class Board extends React.Component {
     super();
   }
 
-  buildPanels {
+  buildPanels() {
     const panelList = [
       {
         id: 1,
@@ -44,11 +44,11 @@ class Board extends React.Component {
     });
 
     return orderedPanels.map((panel) =>{
-      return (<Panel
-               key: {panel.id}
-               name: {panel.name}
-               description: {panel.description}
-               dynamics: {panel.dynamics} />);
+      return <Panel
+               key={panel.id}
+               name={panel.name}
+               description={panel.description}
+               dynamics={panel.dynamics} />
     });
   }
 
