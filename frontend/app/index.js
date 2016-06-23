@@ -1,10 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Board from './components/board';
 import './styles/style.scss';
 
 ReactDOM.render(
   <Board />,
-  document.getElementById('App')
+  document.getElementById('app')
 );
 
 // DEBUG:

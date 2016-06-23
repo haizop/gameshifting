@@ -14,10 +14,10 @@ const Panel = (props) => {
   });
 
   const dynamics = orderedDynamics.map((dynamic) => {
-    return <Dynamic
+    return (<Dynamic
              key={dynamic.id}
              name={dynamic.name}
-             description={dynamic.description} />
+             description={dynamic.description} />);
   });
 
   return (
