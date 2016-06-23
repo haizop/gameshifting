@@ -5,7 +5,9 @@ module V1
       game = Game.new(game_params)
       if game.save
         game.game_users.create(user: current_user)
-        render json: {game: game, setup: game.setups.last}
+
+        GameShift.new(game, )
+        render json: {game: game, setup:.last}
       else
         render json: {
           error: game.errors.full_messages.to_sentence

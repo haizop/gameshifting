@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Dynamic = (props) => {
+  const dynamic = props.dynamic
+
   return (
     <li>
-      {props.name}
+      {dynamic.name}
     </li>
   );
 }

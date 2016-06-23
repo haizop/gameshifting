@@ -1,12 +1,14 @@
 import React from 'react';
 import Dynamic from './dynamic';
 
+const Panel = (props) => {
+  const dynamics = props.dynamics
 
-class Panel extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+  return (
+    <ol>
+      {dynamics}
+    </ol>
+  );
 }
 
 export default Panel;
