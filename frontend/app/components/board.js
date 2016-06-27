@@ -52,6 +52,8 @@ class Board extends React.Component {
     });
   }
 
+
+
   render() {
     const panels = this.buildPanels()
 
