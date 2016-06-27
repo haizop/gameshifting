@@ -21,9 +21,14 @@ const Panel = (props) => {
   });
 
   return (
+
+    <div className="panel panel-default">
+    hello
     <ol className="panel">
       {dynamics}
-    </ol>
+      </ol>
+      <button className="btn btn-danger">hi</button>
+    </div>
   );
 }
 

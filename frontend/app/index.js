@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Board from './components/board';
-import './styles/style.scss';
+import './styles/bootstrap.min.css';
+import './styles/bootstrap-theme.min.css';
+
 
 ReactDOM.render(
   <Board />,
