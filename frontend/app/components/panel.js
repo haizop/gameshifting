@@ -21,13 +21,8 @@ const Panel = (props) => {
   });
 
   return (
-
-    <div className="panel panel-default">
-    hello
-    <ol className="panel">
+    <div className="card">
       {dynamics}
-      </ol>
-      <button className="btn btn-danger">hi</button>
     </div>
   );
 }

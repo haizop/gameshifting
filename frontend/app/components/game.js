@@ -1,66 +1,91 @@
 import React from 'react';
-import Panel from './panel';
+import Board from './board';
 
 class Game extends React.Component {
   constructor() {
     super();
   }
 
-  buildboard() {
-    const board = {
-      panels: [
-        {
-          id: 1,
-          placement: {row: 1, order: 1},
-          name: "Body",
-          description: "body position",
-          dynamics: [
-            {id: 1, order: 3, name: "sitting", description: "on the ground"},
-            {id: 2, order: 1, name: "standing", description: "on your feet"},
-            {id: 3, order: 2, name: "dancing", description: "across the room"}
-          ]
-        },
-        {
-          id: 2,
-          placement: {row: 1, order: 2},
-          name: "Speaking",
-          description: "how we manage who speaks now",
-          dynamics: [
-            {id: 1, order: 3, name: "circle", description: "one at a time"},
-            {id: 2, order: 2, name: "jump-in", description: "joyful chaos"},
-            {id: 3, order: 1, name: "stack", description: "stack keeper makes list"}
-        }
-      ]
+  buildBoard() {
+    const gameState = {
+      board: {
+        panelGroups: [
+          {
+            id: 1,
+            placement: {row: 1, order: 1},
+            name: "Group 1",
+            description: "test panel group 1",
+            panels: [
+              {
+                id: 1,
+                placement: {row: 1, order: 1},
+                name: "Body",
+                description: "body position",
+                dynamics: [
+                  {id: 1, order: 3, name: "sitting", description: "on the ground"},
+                  {id: 2, order: 1, name: "standing", description: "on your feet"},
+                  {id: 3, order: 2, name: "dancing", description: "across the room"}
+                ]
+              },
+              {
+                id: 2,
+                placement: {row: 1, order: 2},
+                name: "Speaking",
+                description: "how we manage who speaks now",
+                dynamics: [
+                  {id: 1, order: 3, name: "circle", description: "one at a time"},
+                  {id: 2, order: 2, name: "jump-in", description: "joyful chaos"},
+                  {id: 3, order: 1, name: "stack", description: "stack keeper makes list"}
+                ]
+              }
+            ]
+          },
+          {
+            id: 2,
+            name: "Group 2",
+            description: "test panel group 2",
+            placement: {row: 2, order: 1},
+            panels: [
+              {
+                id: 1,
+                placement: {row: 1, order: 1},
+                name: "Body",
+                description: "body position",
+                dynamics: [
+                  {id: 1, order: 3, name: "sitting", description: "on the ground"},
+                  {id: 2, order: 1, name: "standing", description: "on your feet"},
+                  {id: 3, order: 2, name: "dancing", description: "across the room"}
+                ]
+              },
+              {
+                id: 2,
+                placement: {row: 1, order: 2},
+                name: "Speaking",
+                description: "how we manage who speaks now",
+                dynamics: [
+                  {id: 1, order: 3, name: "circle", description: "one at a time"},
+                  {id: 2, order: 2, name: "jump-in", description: "joyful chaos"},
+                  {id: 3, order: 1, name: "stack", description: "stack keeper makes list"}
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      roles: {},
+      options: {}
     };
 
-    const orderedPanels = panelList.sort(function (a, b) {
-      if (a.placement.order > b.placement.order ) {
-        return 1;
-      }
-      if (a.placement.order < b.placement.order ) {
-        return -1;
-      }
-      // a must be equal to b
-      return 0;
-    });
-
-    return orderedPanels.map((panel) => {
-      return (<Panel
-               key={panel.id}
-               name={panel.name}
-               description={panel.description}
-               dynamics={panel.dynamics} />);
-    });
+    return gameState.board
   }
 
 
-
   render() {
-    const panels = this.buildPanels()
+    const board = this.buildBoard()
 
     return(
-      <div className="board">
-        {panels}
+      <div className="container-fluid">
+        <Board panelGroups={board.panelGroups} />
       </div>
     );
   }

@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Board from './components/board';
+import Game from './components/game';
 import './styles/bootstrap.min.css';
-import './styles/bootstrap-theme.min.css';
 
 
 ReactDOM.render(
-  <Board />,
+  <Game />,
   document.getElementById('app')
 );
 
