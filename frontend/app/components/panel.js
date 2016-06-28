@@ -3,6 +3,7 @@ import Dynamic from './dynamic';
 import { Card, CardBlock, CardTitle } from 'reactstrap';
 
 const Panel = (props) => {
+
   const orderedDynamics = props.dynamics.sort(function (a, b) {
     if (a.order > b.order ) {
       return 1;

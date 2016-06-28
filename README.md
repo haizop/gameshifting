@@ -14,6 +14,14 @@ http://alcmosaic.org/tools/
 
 http://emergingleaderlabs.org/Gameshifting_Overview
 
+# Usage
+
+```bash
+bundle install && npm install
+rake db:setup
+foreman start -f Procfile.dev
+open http://localhost:3000
+```
 
 Big thanks to [Sean Omlor](http://seanomlor.com). Initial setup of this app cloned from https://github.com/somlor/rails-webpack
 

@@ -4,8 +4,6 @@ import { Card, CardDeck, CardHeader } from 'reactstrap';
 
 const PanelGroup = (props) => {
 
-  const panelWidth = props.width / props.panels.length;
-
   const orderedPanels = props.panels.sort(function (a, b) {
     if (a.placement.order > b.placement.order ) {
       return 1;
@@ -28,7 +26,7 @@ const PanelGroup = (props) => {
   return(
     <Card className="card-info">
       <CardHeader><h3 className="text-xs-center">{props.name}</h3></CardHeader>
-      <CardDeck flex="true">
+      <CardDeck flex>
         {panels}
       </CardDeck>
     </Card>

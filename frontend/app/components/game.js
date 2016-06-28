@@ -1,14 +1,13 @@
 import React from 'react';
 import Board from './board';
-import { Container } from 'reactstrap';
+import Sidebar from './sidebar';
+import { Container, Col, Row } from 'reactstrap';
 
 class Game extends React.Component {
   constructor() {
     super();
-  }
 
-  buildBoard() {
-    const gameState = {
+    this.state = {
       board: {
         panelGroups: [
           {
@@ -84,20 +83,38 @@ class Game extends React.Component {
           }
         ]
       },
-      roles: {},
+      users: [
+        {
+          id: 1,
+          name: "Haiz",
+          role: "game master"
+        },
+        {
+          id: 2,
+          name: "Peanut",
+          role: "food beggar"
+        },
+        {
+          id: 3,
+          name: "Maggie",
+          role: "queen"
+        }
+      ],
       options: {}
     };
-
-    return gameState.board
   }
 
-
   render() {
-    const board = this.buildBoard()
-
     return(
-      <Container fluid="true">
-        <Board panelGroups={board.panelGroups} width={12} />
+      <Container fluid>
+        <Row>
+          <Col xs="12" md="9">
+            <Board panelGroups={this.state.board.panelGroups} />
+          </Col>
+          <Col xs="12" md="3">
+            <Sidebar users={this.state.users} width="3" />
+          </Col>
+        </Row>
       </Container>
     );
   }

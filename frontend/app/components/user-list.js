@@ -6,9 +6,9 @@ const UserList = (props) => {
 
   const users = props.users.map((user) => {
     return (<User
-      key={User.id}
-      name={User.name}
-      role={User.role} />);
+      key={user.id}
+      name={user.name}
+      role={user.role} />);
   });
 
   return(

@@ -3,8 +3,9 @@ import PanelGroup from './panel-group';
 import { Col } from 'reactstrap';
 
 const Board = (props) => {
+  const board = props
 
-  const orderedPanelGroups = props.panelGroups.sort(function (a, b) {
+  const orderedPanelGroups = board.panelGroups.sort(function (a, b) {
     if (a.placement.order > b.placement.order ) {
       return 1;
     }
@@ -25,9 +26,9 @@ const Board = (props) => {
   });
 
   return(
-    <Col xs={props.width}>
+    <div className="board">
       {panelGroups}
-    </Col>
+    </div>
   );
 }
 

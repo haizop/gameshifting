@@ -3,6 +3,7 @@ import { CardText } from 'reactstrap';
 
 const Dynamic = (props) => {
   const dynamic = props;
+
   return (
     <CardText>
       {dynamic.name}
