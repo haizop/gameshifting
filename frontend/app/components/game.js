@@ -104,12 +104,30 @@ class Game extends React.Component {
     };
   }
 
+  toggleDynamic(dynamicId) {
+    console.log(this.state)
+    const newState = this.state.board.panelGroups.map((panelGroup) => {
+      panelGroup.panels.map((panel) => {
+        panel.dynamics.map((dynamic) => {
+          if (dynamic.id === dynamicId) {
+            dynamic.active === true ? dynamic.active = false : dynamic = true;
+          }
+          return dynamic
+        });
+        return panel
+      });
+      return panelGroup
+    });
+    this.setState({board: newState})
+    console.log(this.state)
+  }
+
   render() {
     return(
       <Container fluid>
         <Row>
           <Col xs="12" md="9" lg="10">
-            <Board panelGroups={this.state.board.panelGroups} />
+            <Board panelGroups={this.state.board.panelGroups} toggleDynamic={this.toggleDynamic.bind(this)}/>
           </Col>
           <Col xs="12" md="3" lg="2">
             <Sidebar users={this.state.users} width="3" />

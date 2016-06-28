@@ -7,7 +7,7 @@ const Dynamic = (props) => {
 
   return (
     <div className="input-group">
-      <Switch on={dynamic.active}/>
+      <Switch on={dynamic.active} onClick={dynamic.toggleDynamic(dynamic.id)} />
       <p>
         {dynamic.name}
       </p>

@@ -20,7 +20,8 @@ const Panel = (props) => {
       key={dynamic.id}
       name={dynamic.name}
       description={dynamic.description}
-      active={dynamic.active} />);
+      active={dynamic.active}
+      toggleDynamic={props.toggleDynamic} />);
   });
 
   return (

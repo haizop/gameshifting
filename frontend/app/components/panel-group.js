@@ -17,10 +17,11 @@ const PanelGroup = (props) => {
 
   const panels = orderedPanels.map((panel) => {
     return (<Panel
-             key={panel.id}
-             name={panel.name}
-             description={panel.description}
-             dynamics={panel.dynamics} />);
+      key={panel.id}
+      name={panel.name}
+      description={panel.description}
+      dynamics={panel.dynamics}
+      toggleDynamic={props.toggleDynamic} />);
   });
 
   return(
