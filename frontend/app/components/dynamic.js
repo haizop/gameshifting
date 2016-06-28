@@ -3,9 +3,9 @@ import React from 'react';
 const Dynamic = (props) => {
   const dynamic = props;
   return (
-    <li className="dynamic">
+    <p className="card-text">
       {dynamic.name}
-    </li>
+    </p>
   );
 }
 

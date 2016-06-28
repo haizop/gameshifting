@@ -22,8 +22,7 @@ const Board = (props) => {
              name={panelGroup.name}
              placement={panelGroup.placement}
              description={panelGroup.description}
-             panels={panelGroup.panels}
-             width={12} />);
+             panels={panelGroup.panels} />);
   });
 
   return(
