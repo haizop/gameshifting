@@ -8,6 +8,3 @@ ReactDOM.render(
   <Game />,
   document.getElementById('app')
 );
-
-// DEBUG:
-window.store = store;
