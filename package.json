@@ -16,8 +16,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "file-loader": "^0.9.0",
-    "url-loader": "^0.5.7",
     "webpack-dev-server": "1.14.0"
   },
   "engines": {
@@ -38,7 +36,7 @@
     "expect": "^1.13.4",
     "expect-jsx": "^2.2.2",
     "extract-text-webpack-plugin": "1.0.1",
-    "file-loader": "0.9.0",
+    "file-loader": "^0.9.0",
     "jquery": "^2.2.0",
     "lodash": "^3.10.1",
     "mocha": "^2.3.4",
