@@ -37,6 +37,17 @@ class Game extends React.Component {
                   {id: 2, order: 2, name: "jump-in", description: "joyful chaos"},
                   {id: 3, order: 1, name: "stack", description: "stack keeper makes list"}
                 ]
+              },
+              {
+                id: 3,
+                placement: {row: 1, order: 3},
+                name: "Roles",
+                description: "formal/informal?",
+                dynamics: [
+                  {id: 1, order: 3, name: "facilitator", description: "take the reigns"},
+                  {id: 2, order: 2, name: "stack-keeper", description: "stack keeper makes list"},
+                  {id: 3, order: 1, name: "time master", description: "keep us on track"}
+                ]
               }
             ]
           },
@@ -85,7 +96,7 @@ class Game extends React.Component {
 
     return(
       <div className="container-fluid">
-        <Board panelGroups={board.panelGroups} />
+        <Board panelGroups={board.panelGroups} width={12} />
       </div>
     );
   }

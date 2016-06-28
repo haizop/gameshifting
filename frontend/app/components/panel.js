@@ -21,7 +21,7 @@ const Panel = (props) => {
   });
 
   return (
-    <div className="card">
+    <div className={"panel card col-xs-12 col-md-" + props.width}>
       {dynamics}
     </div>
   );

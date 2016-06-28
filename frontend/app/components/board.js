@@ -22,11 +22,12 @@ const Board = (props) => {
              name={panelGroup.name}
              placement={panelGroup.placement}
              description={panelGroup.description}
-             panels={panelGroup.panels} />);
+             panels={panelGroup.panels}
+             width={12} />);
   });
 
   return(
-    <div className="panel-group">
+    <div className={"board col-xs-12 col-md-" + props.width}>
       {panelGroups}
     </div>
   );

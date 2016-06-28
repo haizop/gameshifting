@@ -2,7 +2,8 @@ import React from 'react';
 import Panel from './panel';
 
 const PanelGroup = (props) => {
-  console.log("in panel-group")
+
+  const panelWidth = props.width / props.panels.length;
 
   const orderedPanels = props.panels.sort(function (a, b) {
     if (a.placement.order > b.placement.order ) {
@@ -19,14 +20,18 @@ const PanelGroup = (props) => {
     return (<Panel
              key={panel.id}
              name={panel.name}
+             width={panelWidth}
              description={panel.description}
              dynamics={panel.dynamics} />);
   });
 
   return(
-    <div className="panel-group">
-      {panels}
+    <div className="row">
+      <div className={"panel-group card col-xs-12 col-md-" + props.width}>
+        {panels}
+      </div>
     </div>
+
   );
 }
 
