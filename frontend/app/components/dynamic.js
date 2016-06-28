@@ -7,7 +7,7 @@ const Dynamic = (props) => {
 
   return (
     <div className="input-group">
-      <Switch />
+      <Switch on={dynamic.active}/>
       <p>
         {dynamic.name}
       </p>
