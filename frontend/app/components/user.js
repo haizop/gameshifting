@@ -6,7 +6,7 @@ const User = (props) => {
 
   return(
     <CardText>
-      {user.name}
+      {user.name} - {user.role}
     </CardText>
   );
 }

@@ -108,10 +108,10 @@ class Game extends React.Component {
     return(
       <Container fluid>
         <Row>
-          <Col xs="12" md="9">
+          <Col xs="12" md="9" lg="10">
             <Board panelGroups={this.state.board.panelGroups} />
           </Col>
-          <Col xs="12" md="3">
+          <Col xs="12" md="3" lg="2">
             <Sidebar users={this.state.users} width="3" />
           </Col>
         </Row>

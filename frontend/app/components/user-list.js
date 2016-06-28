@@ -13,7 +13,7 @@ const UserList = (props) => {
 
   return(
     <Card block>
-      <CardTitle>Participants</CardTitle>
+      <CardTitle>Roles</CardTitle>
       {users}
     </Card>
   );
