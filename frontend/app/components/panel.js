@@ -1,6 +1,6 @@
 import React from 'react';
 import Dynamic from './dynamic';
-import {  Card, CardText, CardBlock, CardTitle, CardSubtitle } from 'reactstrap';
+import { Card, CardBlock, CardTitle } from 'reactstrap';
 
 const Panel = (props) => {
   const orderedDynamics = props.dynamics.sort(function (a, b) {
@@ -22,11 +22,9 @@ const Panel = (props) => {
   });
 
   return (
-    <Card>
-      <CardBlock>
-        <CardTitle>{props.name}</CardTitle>
-        {dynamics}
-      </CardBlock>
+    <Card block>
+      <CardTitle>{props.name}</CardTitle>
+      {dynamics}
     </Card>
   );
 }

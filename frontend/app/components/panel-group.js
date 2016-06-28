@@ -1,5 +1,6 @@
 import React from 'react';
 import Panel from './panel';
+import { Card, CardDeck, CardHeader } from 'reactstrap';
 
 const PanelGroup = (props) => {
 
@@ -25,9 +26,12 @@ const PanelGroup = (props) => {
   });
 
   return(
-    <div className="card-deck">
-      {panels}
-    </div>
+    <Card className="card-info">
+      <CardHeader><h3 className="text-xs-center">{props.name}</h3></CardHeader>
+      <CardDeck flex="true">
+        {panels}
+      </CardDeck>
+    </Card>
 
   );
 }

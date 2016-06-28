@@ -1,9 +1,8 @@
 import React from 'react';
 import PanelGroup from './panel-group';
+import { Col } from 'reactstrap';
 
 const Board = (props) => {
-
-  console.log("in board")
 
   const orderedPanelGroups = props.panelGroups.sort(function (a, b) {
     if (a.placement.order > b.placement.order ) {
@@ -26,9 +25,9 @@ const Board = (props) => {
   });
 
   return(
-    <div className={"board col-xs-12 col-md-" + props.width}>
+    <Col xs={props.width}>
       {panelGroups}
-    </div>
+    </Col>
   );
 }
 

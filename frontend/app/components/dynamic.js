@@ -1,11 +1,12 @@
 import React from 'react';
+import { CardText } from 'reactstrap';
 
 const Dynamic = (props) => {
   const dynamic = props;
   return (
-    <p className="card-text">
+    <CardText>
       {dynamic.name}
-    </p>
+    </CardText>
   );
 }
 

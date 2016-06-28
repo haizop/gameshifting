@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from './board';
+import { Container } from 'reactstrap';
 
 class Game extends React.Component {
   constructor() {
@@ -95,9 +96,9 @@ class Game extends React.Component {
     const board = this.buildBoard()
 
     return(
-      <div className="container-fluid">
+      <Container fluid="true">
         <Board panelGroups={board.panelGroups} width={12} />
-      </div>
+      </Container>
     );
   }
 }
