@@ -18,6 +18,7 @@ const Panel = (props) => {
   const dynamics = orderedDynamics.map((dynamic) => {
     return (<Dynamic
       key={dynamic.id}
+      id={dynamic.id}
       name={dynamic.name}
       description={dynamic.description}
       active={dynamic.active}

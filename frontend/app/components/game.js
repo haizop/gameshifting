@@ -9,6 +9,7 @@ class Game extends React.Component {
 
     this.state = {
       board: {
+        name: "first board",
         panelGroups: [
           {
             id: 1,
@@ -63,9 +64,9 @@ class Game extends React.Component {
                 name: "Body",
                 description: "body position",
                 dynamics: [
-                  {id: 10, order: 3, name: "sitting", description: "on the ground"},
-                  {id: 11, order: 1, name: "standing", description: "on your feet"},
-                  {id: 12, order: 2, name: "dancing", description: "across the room"}
+                  {id: 10, order: 3, name: "sitting", description: "on the ground", active: false},
+                  {id: 11, order: 1, name: "standing", description: "on your feet", active: false},
+                  {id: 12, order: 2, name: "dancing", description: "across the room", active: false}
                 ]
               },
               {
@@ -74,9 +75,9 @@ class Game extends React.Component {
                 name: "Speaking",
                 description: "how we manage who speaks now",
                 dynamics: [
-                  {id: 13, order: 3, name: "circle", description: "one at a time"},
-                  {id: 14, order: 2, name: "jump-in", description: "joyful chaos"},
-                  {id: 15, order: 1, name: "stack", description: "stack keeper makes list"}
+                  {id: 13, order: 3, name: "circle", description: "one at a time", active: false},
+                  {id: 14, order: 2, name: "jump-in", description: "joyful chaos", active: false},
+                  {id: 15, order: 1, name: "stack", description: "stack keeper makes list", active: false}
                 ]
               }
             ]
@@ -104,22 +105,25 @@ class Game extends React.Component {
     };
   }
 
+
   toggleDynamic(dynamicId) {
-    console.log(this.state)
-    const newState = this.state.board.panelGroups.map((panelGroup) => {
+    const newPanelGroups = this.state.board.panelGroups.map((panelGroup) => {
       panelGroup.panels.map((panel) => {
         panel.dynamics.map((dynamic) => {
           if (dynamic.id === dynamicId) {
-            dynamic.active === true ? dynamic.active = false : dynamic = true;
+            dynamic.active === true ? dynamic.active = false : dynamic.active = true;
           }
-          return dynamic
+          return dynamic;
         });
-        return panel
+        return panel;
       });
-      return panelGroup
+      return panelGroup;
     });
-    this.setState({board: newState})
-    console.log(this.state)
+
+    const newBoard = this.state.board
+    newBoard.panelGroups = newPanelGroups
+
+    this.setState({board: newBoard})
   }
 
   render() {

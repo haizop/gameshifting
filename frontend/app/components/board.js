@@ -23,7 +23,7 @@ const Board = (props) => {
       placement={panelGroup.placement}
       description={panelGroup.description}
       panels={panelGroup.panels}
-      toggleDynamic={props.toggleDynamic}/>);
+      toggleDynamic={props.toggleDynamic} />);
   });
 
   return(
