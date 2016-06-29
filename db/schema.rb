@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601161248) do
+ActiveRecord::Schema.define(version: 20160629173059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 20160601161248) do
 
   create_table "game_states", force: :cascade do |t|
     t.integer  "game_id"
-    t.jsonb    "setup",      default: {}, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.jsonb    "current_state", default: {}, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
+  add_index "game_states", ["current_state"], name: "index_game_states_on_current_state", using: :gin
   add_index "game_states", ["game_id"], name: "index_game_states_on_game_id", using: :btree
-  add_index "game_states", ["setup"], name: "index_game_states_on_setup", using: :gin
 
   create_table "game_users", force: :cascade do |t|
     t.integer  "user_id"

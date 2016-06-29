@@ -2,16 +2,16 @@
 #
 # Table name: game_states
 #
-#  id         :integer          not null, primary key
-#  game_id    :integer
-#  setup      :jsonb            not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  game_id       :integer
+#  current_state :jsonb            not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 # Indexes
 #
-#  index_game_states_on_game_id  (game_id)
-#  index_game_states_on_setup    (setup)
+#  index_game_states_on_current_state  (current_state)
+#  index_game_states_on_game_id        (game_id)
 #
 
 require 'rails_helper'
@@ -27,6 +27,6 @@ RSpec.describe GameState, type: :model do
 
   describe 'validation' do
     it { should validate_presence_of(:game)}
-    it { should validate_presence_of(:setup)}
+    it { should validate_presence_of(:current_state)}
   end
 end

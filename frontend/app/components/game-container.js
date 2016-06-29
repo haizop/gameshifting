@@ -1,11 +1,34 @@
 import React from 'react';
 import Game from './game';
+import $ from 'jquery';
 
 class GameContainer extends React.Component {
   constructor() {
     super();
+  }
 
-    this.state = {
+  componentWillMount() {
+    this.setTestState();
+  }
+
+  getState() {
+    $.ajax({
+      method: 'GET',
+      url: '/v1/gamestate/show',
+      success: (gameState) => {
+        this.setState({...gameState});
+      }
+    });
+  }
+
+  render() {
+    return(
+      <Game gameState={this.state} />
+    );
+  }
+
+  setTestState() {
+    const testState = {
       board: {
         name: "first board",
         panelGroups: [
@@ -101,12 +124,7 @@ class GameContainer extends React.Component {
       ],
       options: {}
     };
-  }
-
-  render() {
-    return(
-      <Game gameState={this.state} />
-    );
+    this.setState({...testState});
   }
 }
 
