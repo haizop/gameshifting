@@ -4,7 +4,7 @@ import { Card, CardBlock, CardTitle } from 'reactstrap';
 
 const Panel = (props) => {
 
-  const dynamics = Array.from(props.dynamics).map((dynamic) => {
+  const dynamics = Object.keys(props.dynamics).map(key => props.dynamics[key]).map((dynamic) => {
     return (<Dynamic
       key={dynamic.id}
       id={dynamic.id}

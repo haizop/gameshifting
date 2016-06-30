@@ -7,23 +7,36 @@ import { Container, Col, Row } from 'reactstrap';
 class Game extends React.Component {
   constructor() {
     super();
-
-    this.state = {waiting: true}
+    this.state = {
+      loaded: false,
+      board: [],
+      users: []
+    }
   }
 
   componentWillMount() {
     this.setTestState();
   }
 
+  // componentDidMount() {
+  //   this.getGameState();
+  // }
+
   getGameState() {
-    self = this
-    $.ajax({
-      method: 'GET',
-      url: '/v1/game_states/show',
-      success: (gameState) => {
-        self.setState({ board: gameState.board, users: gameState.users, waiting: false });
-      }
+    $.getJSON('/v1/game_states/show.json').then((gameState) => {
+      console.log(gameState);
+
+      this.setState({ board: gameState.board, users: gameState.users, loaded: true });
     });
+    // $.ajax({
+    //   method: 'GET',
+    //   dataType: 'json',
+    //   contentType: 'application/json',
+    //   url: '/v1/game_states/show',
+    //   success: (gameState) => {
+    //     this.setState({ board: gameState.board, users: gameState.users, loaded: true });
+    //   }
+    // });
   }
 
   postGameState(gameState) {
@@ -43,7 +56,7 @@ class Game extends React.Component {
       panelGroup.panels.map((panel) => {
         panel.dynamics.map((dynamic) => {
           if (dynamic.id === dynamicId) {
-            dynamic.active === true ? dynamic.active = false : dynamic.active = true;
+            dynamic.active === "true" ? dynamic.active = "false" : dynamic.active = "true";
           }
           return dynamic;
         });
@@ -60,98 +73,152 @@ class Game extends React.Component {
   }
 
   render() {
-    // if (this.state.waiting === true){
-    //   return(
-    //     <div>Waiting</div>
-    //   );
-    // } else {
+    if (this.state.loaded === true){
       return(
         <Container fluid>
           <Row>
-            <Col xs="12" md="9" lg="10">
+            <Col xs="12">
               <Board panelGroups={this.state.board.panelGroups} toggleDynamic={this.toggleDynamic.bind(this)}/>
             </Col>
-            <Col xs="12" md="3" lg="2">
+            {/*<Col xs="12" md="3" lg="2">
               <Sidebar users={this.state.users} width="3" />
-            </Col>
+            </Col>*/}
           </Row>
         </Container>
       );
-    // }
+    } else {
+      return <div>Loading...</div>;
+    }
   }
 
   setTestState() {
     const testState = {
       board: {
-        name: "first board",
+        name: "GameShifting",
         panelGroups: [
           {
             id: 1,
             placement: {row: 1, order: 1},
-            name: "Group 1",
+            name: "Creative Mode",
             description: "test panel group 1",
             panels: [
               {
                 id: 1,
                 placement: {row: 1, order: 1},
-                name: "Body",
-                description: "body position",
+                name: "Meta",
+                description: "",
                 dynamics: [
-                  {id: 1, order: 3, name: "sitting", description: "on the ground", active: true},
-                  {id: 2, order: 1, name: "standing", description: "on your feet", active: false},
-                  {id: 3, order: 2, name: "dancing", description: "across the room", active: false}
+                  {id: 1, order: 1, name: "Open", description: "on the ground", active: "true"},
+                  {id: 2, order: 2, name: "Prepare", description: "on your feet", active: "false"},
+                  {id: 3, order: 3, name: "Transition", description: "across the room", active: "false"},
+                  {id: 4, order: 4, name: "Break", description: "across the room", active: "false"}
                 ]
               },
               {
                 id: 2,
                 placement: {row: 1, order: 2},
-                name: "Speaking",
-                description: "how we manage who speaks now",
+                name: "Broaden",
+                description: "",
                 dynamics: [
-                  {id: 4, order: 3, name: "circle", description: "one at a time", active: false},
-                  {id: 5, order: 2, name: "jump-in", description: "joyful chaos", active: true},
-                  {id: 6, order: 1, name: "stack", description: "stack keeper makes list", active: false}
+                  {id: 5, order: 1, name: "Gather", description: "on the ground", active: "true"},
+                  {id: 6, order: 2, name: "Explore", description: "on your feet", active: "false"},
+                  {id: 7, order: 3, name: "Engage", description: "across the room", active: "false"},
+                  {id: 8, order: 4, name: "Generate", description: "across the room", active: "false"}
                 ]
               },
               {
                 id: 3,
                 placement: {row: 1, order: 3},
-                name: "Roles",
+                name: "Transform",
                 description: "formal/informal?",
                 dynamics: [
-                  {id: 7, order: 3, name: "facilitator", description: "take the reigns", active: true},
-                  {id: 8, order: 2, name: "stack-keeper", description: "stack keeper makes list", active: false},
-                  {id: 9, order: 1, name: "time master", description: "keep us on track", active: true}
+                  {id: 9, order: 1, name: "Listen", description: "on the ground", active: "true"},
+                  {id: 10, order: 2, name: "Learn", description: "on your feet", active: "false"},
+                  {id: 11, order: 3, name: "Reframe", description: "across the room", active: "false"},
+                  {id: 12, order: 4, name: "Deepen", description: "across the room", active: "false"}
+                ]
+              },
+              {
+                id: 4,
+                placement: {row: 1, order: 4},
+                name: "Narrow",
+                description: "formal/informal?",
+                dynamics: [
+                  {id: 13, order: 1, name: "Select", description: "on the ground", active: "true"},
+                  {id: 14, order: 2, name: "Filter", description: "on your feet", active: "false"},
+                  {id: 15, order: 3, name: "Priortize", description: "across the room", active: "false"},
+                  {id: 16, order: 4, name: "Vote", description: "across the room", active: "false"}
+                ]
+              },
+              {
+                id: 5,
+                placement: {row: 1, order: 5},
+                name: "End",
+                description: "formal/informal?",
+                dynamics: [
+                  {id: 17, order: 1, name: "Complete", description: "on the ground", active: "true"},
+                  {id: 18, order: 2, name: "Close", description: "on your feet", active: "false"},
+                  {id: 19, order: 3, name: "Evaluate", description: "across the room", active: "false"},
+                  {id: 20, order: 4, name: "Reflect", description: "across the room", active: "false"}
                 ]
               }
             ]
           },
           {
             id: 2,
-            name: "Group 2",
+            name: "Conversation Dynamics",
             description: "test panel group 2",
             placement: {row: 2, order: 1},
             panels: [
               {
-                id: 4,
+                id: 6,
                 placement: {row: 1, order: 1},
-                name: "Body",
+                name: "Time Management",
                 description: "body position",
                 dynamics: [
-                  {id: 10, order: 3, name: "sitting", description: "on the ground", active: false},
-                  {id: 11, order: 1, name: "standing", description: "on your feet", active: false},
-                  {id: 12, order: 2, name: "dancing", description: "across the room", active: false}
+                  {id: 21, order: 3, name: "Start: On Time", description: "on the ground", active: "false"},
+                  {id: 22, order: 1, name: "Start: Attendence ", description: "on your feet", active: "false"},
+                  {id: 23, order: 2, name: "End: On Time", description: "across the room", active: "false"},
+                  {id: 24, order: 2, name: "End: When Done", description: "across the room", active: "false"}
                 ]
               },
               {
-                id: 5,
+                id: 7,
+                placement: {row: 1, order: 1},
+                name: "Content Source",
+                description: "body position",
+                dynamics: [
+                  {id: 25, order: 3, name: "From Agenda", description: "on the ground", active: "false"},
+                  {id: 26, order: 1, name: "Emergent", description: "on your feet", active: "false"},
+                  {id: 27, order: 2, name: "Scrum", description: "across the room", active: "false"},
+                  {id: 28, order: 2, name: "Change Up", description: "across the room", active: "false"}
+                ]
+              },
+              {
+                id: 8,
                 placement: {row: 1, order: 2},
-                name: "Speaking",
+                name: "Roles",
                 description: "how we manage who speaks now",
                 dynamics: [
-                  {id: 13, order: 3, name: "circle", description: "one at a time", active: false},
-                  {id: 14, order: 2, name: "jump-in", description: "joyful chaos", active: false},
-                  {id: 15, order: 1, name: "stack", description: "stack keeper makes list", active: false}
+                  {id: 29, order: 3, name: "Game Master", description: "one at a time", active: "false"},
+                  {id: 30, order: 2, name: "Facilitator", description: "joyful chaos", active: "false"},
+                  {id: 31, order: 1, name: "Stack Keeper", description: "stack keeper makes list", active: "false"},
+                  {id: 32, order: 2, name: "Narrator", description: "joyful chaos", active: "false"}
+                ]
+              },
+              {
+                id: 9,
+                placement: {row: 1, order: 2},
+                name: "Interaction",
+                description: "how we manage who speaks now",
+                dynamics: [
+                  {id: 33, order: 3, name: "Babble", description: "one at a time", active: "false"},
+                  {id: 34, order: 2, name: "Sub-Groups", description: "joyful chaos", active: "false"},
+                  {id: 35, order: 1, name: "Popcorn", description: "stack keeper makes list", active: "false"},
+                  {id: 36, order: 2, name: "Jump-In", description: "joyful chaos", active: "false"},
+                  {id: 37, order: 2, name: "Circle", description: "joyful chaos", active: "false"},
+                  {id: 38, order: 2, name: "Breathe First", description: "joyful chaos", active: "false"},
+                  {id: 39, order: 2, name: "Listening Stick", description: "joyful chaos", active: "false"}
                 ]
               }
             ]
@@ -175,7 +242,7 @@ class Game extends React.Component {
           role: "queen"
         }
       ],
-      options: {}
+      loaded: true
     };
     this.setState({...testState});
   }

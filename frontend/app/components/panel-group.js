@@ -4,7 +4,7 @@ import { Card, CardDeck, CardHeader } from 'reactstrap';
 
 const PanelGroup = (props) => {
 
-  const panels = Array.from(props.panels).map((panel) => {
+  const panels = Object.keys(props.panels).map(key => props.panels[key]).map((panel) => {
     return (<Panel
       key={panel.id}
       name={panel.name}
