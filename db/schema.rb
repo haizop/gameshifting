@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 20160629173059) do
 
   create_table "game_states", force: :cascade do |t|
     t.integer  "game_id"
-    t.jsonb    "current_state", default: {}, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.jsonb    "state",      default: {}, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
-  add_index "game_states", ["current_state"], name: "index_game_states_on_current_state", using: :gin
   add_index "game_states", ["game_id"], name: "index_game_states_on_game_id", using: :btree
+  add_index "game_states", ["state"], name: "index_game_states_on_state", using: :gin
 
   create_table "game_users", force: :cascade do |t|
     t.integer  "user_id"

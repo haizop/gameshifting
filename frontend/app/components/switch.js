@@ -1,18 +1,19 @@
 import React from 'react';
 
-export default class Switch extends React.Component {
+class Switch extends React.Component {
   static propTypes = {
     on: React.PropTypes.bool,
     onClick: React.PropTypes.func,
     enabled: React.PropTypes.bool,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    dynamicId: React.PropTypes.number
   };
 
   static defaultProps = {
     on: false,
     onClick: () => {},
     enabled: true,
-    className: ''
+    className: '',
   };
 
   constructor(props) {
@@ -35,3 +36,5 @@ export default class Switch extends React.Component {
     );
   }
 }
+
+export default Switch;

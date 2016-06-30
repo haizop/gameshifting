@@ -1,5 +1,5 @@
 class ChangeSetupToCurrentState < ActiveRecord::Migration
   def change
-    rename_column :game_states, :setup, :current_state
+    rename_column :game_states, :setup, :state
   end
 end

@@ -4,18 +4,7 @@ import { Card, CardBlock, CardTitle } from 'reactstrap';
 
 const Panel = (props) => {
 
-  const orderedDynamics = props.dynamics.sort(function (a, b) {
-    if (a.order > b.order ) {
-      return 1;
-    }
-    if (a.order < b.order ) {
-      return -1;
-    }
-    // a must be equal to b
-    return 0;
-  });
-
-  const dynamics = orderedDynamics.map((dynamic) => {
+  const dynamics = Array.from(props.dynamics).map((dynamic) => {
     return (<Dynamic
       key={dynamic.id}
       id={dynamic.id}

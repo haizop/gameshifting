@@ -3,13 +3,12 @@ import { CardText } from 'reactstrap';
 import Switch from './switch'
 
 const Dynamic = (props) => {
-  const dynamic = props;
 
   return (
     <div className="input-group">
-      <Switch on={dynamic.active} dynamicId={dynamic.id} onClick={dynamic.toggleDynamic} />
+      <Switch on={props.active} dynamicId={props.id} onClick={props.toggleDynamic} />
       <p>
-        {dynamic.name}
+        {props.name}
       </p>
     </div>
   );

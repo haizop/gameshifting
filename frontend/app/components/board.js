@@ -3,20 +3,8 @@ import PanelGroup from './panel-group';
 import { Col } from 'reactstrap';
 
 const Board = (props) => {
-  const board = props
 
-  const orderedPanelGroups = board.panelGroups.sort(function (a, b) {
-    if (a.placement.order > b.placement.order ) {
-      return 1;
-    }
-    if (a.placement.order < b.placement.order ) {
-      return -1;
-    }
-    // a must be equal to b
-    return 0;
-  });
-
-  const panelGroups = orderedPanelGroups.map((panelGroup) => {
+  const panelGroups = Array.from(props.panelGroups).map((panelGroup) => {
     return (<PanelGroup
       key={panelGroup.id}
       name={panelGroup.name}
@@ -31,6 +19,14 @@ const Board = (props) => {
       {panelGroups}
     </div>
   );
+}
+
+Board.propTypes = {
+  panelGroups: React.PropTypes.array
+}
+
+Board.defaultProps = {
+  panelGroups: []
 }
 
 export default Board;

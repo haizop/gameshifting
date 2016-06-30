@@ -2,11 +2,10 @@ import React from 'react';
 import { CardText } from 'reactstrap';
 
 const User = (props) => {
-  const user = props;
 
   return(
     <CardText>
-      {user.name} - {user.role}
+      {props.name} - {props.role}
     </CardText>
   );
 }

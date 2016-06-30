@@ -6,7 +6,7 @@ module V1
       if game.save
         # game.game_users.create(user: current_user)
         game_state = game.game_states.create!(FactoryGirl.attributes_for(:game_state))
-        render json: {game: game, setup: game_state.setup}
+        render json: {game: game, state: game_state.state}
       else
         render json: {
           error: game.errors.full_messages.to_sentence
@@ -20,8 +20,8 @@ module V1
     end
 
     def show
-      setup = current_game.game_states.last.setup
-      render json: {game: current_game, setup: setup}
+      state = current_game.game_states.last.state
+      render json: {game: current_game, state: state}
     end
 
     def update

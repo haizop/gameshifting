@@ -4,18 +4,7 @@ import { Card, CardDeck, CardHeader } from 'reactstrap';
 
 const PanelGroup = (props) => {
 
-  const orderedPanels = props.panels.sort(function (a, b) {
-    if (a.placement.order > b.placement.order ) {
-      return 1;
-    }
-    if (a.placement.order < b.placement.order ) {
-      return -1;
-    }
-    // a must be equal to b
-    return 0;
-  });
-
-  const panels = orderedPanels.map((panel) => {
+  const panels = Array.from(props.panels).map((panel) => {
     return (<Panel
       key={panel.id}
       name={panel.name}

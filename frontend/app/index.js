@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GameContainer from './components/game-container';
+import Game from './components/game';
 import './styles/style.scss';
 
-
 ReactDOM.render(
-  <GameContainer />,
+  <Game />,
   document.getElementById('app')
 );

@@ -4,7 +4,7 @@ import { Card, CardBlock, CardTitle } from 'reactstrap';
 
 const UserList = (props) => {
 
-  const users = props.users.map((user) => {
+  const users = Array.from(props.users).map((user) => {
     return (<User
       key={user.id}
       name={user.name}

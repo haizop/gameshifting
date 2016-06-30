@@ -2,16 +2,16 @@
 #
 # Table name: game_states
 #
-#  id            :integer          not null, primary key
-#  game_id       :integer
-#  current_state :jsonb            not null
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id         :integer          not null, primary key
+#  game_id    :integer
+#  state      :jsonb            not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_game_states_on_current_state  (current_state)
-#  index_game_states_on_game_id        (game_id)
+#  index_game_states_on_game_id  (game_id)
+#  index_game_states_on_state    (state)
 #
 
 require 'rails_helper'
