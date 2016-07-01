@@ -5,6 +5,7 @@ module V1
     def create
       game = Game.last
       game_state = game.game_states.new(state: params)
+
       if game_state.save
         render json: game_state
       else
@@ -27,7 +28,7 @@ module V1
     private
 
     def game_state_params
-      params.require(:state).permit(:board, :users, :options)
+      params.require(:state).permit(:board, :users )
     end
   end
 end
