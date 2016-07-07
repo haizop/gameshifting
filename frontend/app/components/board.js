@@ -7,7 +7,6 @@ import $ from 'jquery';
 const Board = (props) => {
 
   const panelGroups = Object.keys(props.panelGroups).map(key => props.panelGroups[key]).map((panelGroup) => {
-    console.log(panelGroup.name);
     return (<PanelGroup
       key={panelGroup.id}
       name={panelGroup.name}
@@ -16,8 +15,6 @@ const Board = (props) => {
       panels={panelGroup.panels}
       toggleDynamic={props.toggleDynamic} />);
   });
-  console.log(props.panelGroups);
-  console.log(panelGroups);
 
   return(
     <div className="board">

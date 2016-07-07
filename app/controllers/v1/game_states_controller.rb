@@ -1,16 +1,17 @@
 module V1
   class GameStatesController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:create, :update]
+    wrap_parameters :game_state, include: [:board, :users]
 
     def create
       game = Game.last
-      game_state = game.game_states.new(state: params)
-
+      game_state = game.game_states.new(state: params[:game_state])
+      
       if game_state.save
         render json: game_state
       else
         render json: {
-          error: todo.errors.full_messages.to_sentence
+          error: game_state.errors.full_messages.to_sentence
         }, status: 422
       end
     end
@@ -25,10 +26,5 @@ module V1
       render json: game_state.state
     end
 
-    private
-
-    def game_state_params
-      params.require(:state).permit(:board, :users )
-    end
   end
 end
