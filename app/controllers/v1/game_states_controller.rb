@@ -6,7 +6,7 @@ module V1
     def create
       game = Game.last
       game_state = game.game_states.new(state: params[:game_state])
-      
+
       if game_state.save
         render json: game_state
       else
@@ -25,6 +25,5 @@ module V1
       game_state = Game.last.game_states.last
       render json: game_state.state
     end
-
   end
 end
