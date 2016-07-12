@@ -4,13 +4,13 @@ import { Card, CardDeck, CardHeader } from 'reactstrap';
 
 const PanelGroup = (props) => {
 
-  const panels = Object.keys(props.panels).map(key => props.panels[key]).map((panel) => {
+  const panels = props.panels.map((panel) => {
     return (<Panel
       key={panel.id}
       name={panel.name}
       description={panel.description}
       dynamics={panel.dynamics}
-      {...props} />);
+      toggleDynamic={props.toggleDynamic} />);
   });
 
   return(

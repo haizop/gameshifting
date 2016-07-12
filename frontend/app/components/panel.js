@@ -4,20 +4,20 @@ import { Card, CardBlock, CardTitle } from 'reactstrap';
 
 const Panel = (props) => {
 
-  const dynamics = Object.keys(props.dynamics).map(key => props.dynamics[key]).map((dynamic) => {
+  const dynamics = props.dynamics.map((dynamic) => {
     return (<Dynamic
       key={dynamic.id}
       id={dynamic.id}
       name={dynamic.name}
       description={dynamic.description}
       active={dynamic.active}
-      {...props} />);
+      toggleDynamic={props.toggleDynamic} />);
   });
 
   return (
     <Card block>
       <CardTitle>{props.name}</CardTitle>
-      
+
       {dynamics}
     </Card>
   );

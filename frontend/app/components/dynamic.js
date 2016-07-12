@@ -6,7 +6,10 @@ const Dynamic = (props) => {
 
   return (
     <div className="input-group">
-      <Switch on={props.active} dynamicId={props.id} onClick={props.toggleDynamic} />
+      <Switch
+        on={props.active}
+        dynamicId={props.id}
+        onClick={props.toggleDynamic} />
       <p>
         {props.name}
       </p>

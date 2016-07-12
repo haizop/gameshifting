@@ -53,10 +53,6 @@ class Game extends React.Component {
   }
 
   postGameState(gameState) {
-    // const gameData = {
-    //   board: gameState.board,
-    //   users: gameState.users
-    // }
     $.ajax({
       method: 'POST',
       contentType: 'application/json; charset=UTF-8',
