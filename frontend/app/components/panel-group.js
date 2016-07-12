@@ -10,7 +10,7 @@ const PanelGroup = (props) => {
       name={panel.name}
       description={panel.description}
       dynamics={panel.dynamics}
-      toggleDynamic={props.toggleDynamic} />);
+      {...props} />);
   });
 
   return(

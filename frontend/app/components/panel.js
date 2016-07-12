@@ -11,12 +11,13 @@ const Panel = (props) => {
       name={dynamic.name}
       description={dynamic.description}
       active={dynamic.active}
-      toggleDynamic={props.toggleDynamic} />);
+      {...props} />);
   });
 
   return (
     <Card block>
       <CardTitle>{props.name}</CardTitle>
+      
       {dynamics}
     </Card>
   );

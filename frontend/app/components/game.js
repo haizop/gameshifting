@@ -13,13 +13,32 @@ class Game extends React.Component {
       users: []
     }
   }
-  //
+
   // componentDidMount() {
   //   this.setTestStateArr();
   // }
 
   componentDidMount() {
     this.getGameState();
+  }
+
+  clearPanel(panelId){
+    const newBoard = this.state.board
+    newBoard.panelGroups = this.state.board.panelGroups.map((panelGroup) => {
+      panelGroup.panels.map((panel) => {
+        if (panel.id === panelId) {
+          panel.dynamics.map((dynamic) => {
+            dynamic.active = "false";
+            return dynamic;
+          });
+        } else { return panel.dynamics; }
+        return panel;
+      });
+      return panelGroup;
+    });
+
+    this.setState({board: newBoard});
+    this.postGameState(this.state);
   }
 
   getGameState() {
@@ -51,7 +70,8 @@ class Game extends React.Component {
   }
 
   toggleDynamic(dynamicId) {
-    const newPanelGroups = this.state.board.panelGroups.map((panelGroup) => {
+    const newBoard = this.state.board
+    newBoard.panelGroups = this.state.board.panelGroups.map((panelGroup) => {
       panelGroup.panels.map((panel) => {
         panel.dynamics.map((dynamic) => {
           if (dynamic.id === dynamicId) {
@@ -64,9 +84,6 @@ class Game extends React.Component {
       return panelGroup;
     });
 
-    const newBoard = this.state.board;
-    newBoard.panelGroups = newPanelGroups;
-
     this.setState({board: newBoard});
     this.postGameState(this.state);
   }
@@ -77,7 +94,10 @@ class Game extends React.Component {
         <Container fluid>
           <Row className="game">
             <Col xs="12">
-              <Board panelGroups={this.state.board.panelGroups} toggleDynamic={this.toggleDynamic.bind(this)}/>
+              <Board
+                panelGroups={this.state.board.panelGroups}
+                toggleDynamic={this.toggleDynamic.bind(this)}
+                clearPanel={this.clearPanel.bind(this)} />
             </Col>
             {/*<Col xs="12" md="3" lg="2">
               <Sidebar users={this.state.users} width="3" />
