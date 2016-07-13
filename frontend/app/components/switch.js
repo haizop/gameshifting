@@ -1,32 +1,19 @@
 import React from 'react';
 
-class Switch extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Switch = (props) => {
 
-  handleClick = (e) => {
-    e.preventDefault();
-    if(this.props.enabled) {
-      this.props.onClick(parseInt(this.props.dynamicId));
-    }
-  };
-
-  render() {
-    const className = ['switch', this.props.className, (this.props.on === "true" ? 'on ' : ''), (this.props.enabled ? '' : 'disabled ')].join(' ');
-    return (
-      <div className={className} onClick={this.handleClick}>
-        <div className="switch-toggle" children={this.props.children}></div>
-      </div>
-    );
-  }
+  const className = ['switch', ' ', (props.on === "true" ? 'on' : ''), (props.enabled ? '' : 'disabled')].join(' ');
+  return (
+    <div className={className} onClick={() => {props.toggleDynamic(props.dynamicId)}}>
+      <div className="switch-toggle"></div>
+    </div>
+  );
 }
 
 Switch.propTypes = {
   on: React.PropTypes.string,
   onClick: React.PropTypes.func,
   enabled: React.PropTypes.bool,
-  className: React.PropTypes.string,
   dynamicId: React.PropTypes.number
 };
 
