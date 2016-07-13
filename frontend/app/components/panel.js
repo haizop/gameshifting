@@ -20,7 +20,7 @@ const Panel = (props) => {
       <CardTitle>{props.name}</CardTitle>
       <ClearButton
         handleClick={props.clearPanel}
-        panelId={props.id} />
+        targetId={props.id} />
       {dynamics}
     </Card>
   );

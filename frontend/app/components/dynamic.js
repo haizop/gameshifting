@@ -17,7 +17,7 @@ const Dynamic = (props) => {
   );
 }
 
-Panel.propTypes = {
+Dynamic.propTypes = {
   id: React.PropTypes.number,
   name: React.PropTypes.string,
   description: React.PropTypes.string,
@@ -25,7 +25,7 @@ Panel.propTypes = {
   toggleDynamic: React.PropTypes.func,
 }
 
-Panel.defaultProps = {
+Dynamic.defaultProps = {
   name: '',
   description: '',
   active: 'false',
