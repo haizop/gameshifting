@@ -9,7 +9,7 @@ const Dynamic = (props) => {
       <Switch
         on={props.active}
         dynamicId={props.id}
-        toggleDynamic={props.toggleDynamic} />
+        handleClick={props.toggleDynamic} />
       <p>
         {props.name}
       </p>

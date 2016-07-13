@@ -4,7 +4,7 @@ const Switch = (props) => {
 
   const className = ['switch', ' ', (props.on === "true" ? 'on' : ''), (props.enabled ? '' : 'disabled')].join(' ');
   return (
-    <div className={className} onClick={() => {props.toggleDynamic(props.dynamicId)}}>
+    <div className={className} onClick={() => {props.handleClick(props.dynamicId)}}>
       <div className="switch-toggle"></div>
     </div>
   );
@@ -12,14 +12,14 @@ const Switch = (props) => {
 
 Switch.propTypes = {
   on: React.PropTypes.string,
-  onClick: React.PropTypes.func,
+  handleClick: React.PropTypes.func,
   enabled: React.PropTypes.bool,
   dynamicId: React.PropTypes.number
 };
 
 Switch.defaultProps = {
   on: false,
-  onClick: () => {},
+  handleClick: () => {},
   enabled: true,
   className: '',
 };

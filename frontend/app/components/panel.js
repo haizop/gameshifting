@@ -19,7 +19,7 @@ const Panel = (props) => {
     <Card block>
       <CardTitle>{props.name}</CardTitle>
       <ClearButton
-        clearPanel={props.clearPanel}
+        handleClick={props.clearPanel}
         panelId={props.id} />
       {dynamics}
     </Card>

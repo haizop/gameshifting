@@ -25,11 +25,15 @@ const Board = (props) => {
 }
 
 Board.propTypes = {
-  panelGroups: React.PropTypes.object
+  panelGroups: React.PropTypes.array,
+  toggleDynamic: React.PropTypes.func,
+  clearPanel: React.PropTypes.func
 }
 
 Board.defaultProps = {
-  panelGroups: {}
+  panelGroups: [],
+  toggleDynamic: () => {},
+  clearPanel: () => {},
 }
 
 export default Board;
