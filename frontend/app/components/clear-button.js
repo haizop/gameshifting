@@ -1,10 +1,11 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 
 const ClearButton = (props) => {
 
   return (
-    <Button color="primary" onClick={() => {props.handleClick(props.targetId)}}>Clear Dynamics</Button>
+    <a aria-label="Clear Active Dynamics" onClick={() => {props.handleClick(props.targetId)}}>
+      <i className="fa fa-toggle-off"></i>
+    </a>
   );
 }
 

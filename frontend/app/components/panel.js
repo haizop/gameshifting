@@ -17,10 +17,14 @@ const Panel = (props) => {
 
   return (
     <Card block>
-      <CardTitle>{props.name}</CardTitle>
-      <ClearButton
-        handleClick={props.clearPanel}
-        targetId={props.id} />
+      <CardTitle>
+        {props.name}
+        <div className="pull-right">
+          <ClearButton
+            handleClick={props.clearPanel}
+            targetId={props.id} />
+        </div>
+      </CardTitle>
       {dynamics}
     </Card>
   );
