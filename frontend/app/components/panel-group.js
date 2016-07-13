@@ -26,4 +26,20 @@ const PanelGroup = (props) => {
   );
 }
 
+PanelGroup.propTypes = {
+  name: React.PropTypes.string,
+  description: React.PropTypes.string,
+  panels: React.PropTypes.array,
+  toggleDynamic: React.PropTypes.func,
+  clearPanel: React.PropTypes.func
+}
+
+PanelGroup.defaultProps = {
+  name: '',
+  description: '',
+  panels: [],
+  toggleDynamic: () => {},
+  clearPanel: () => {},
+}
+
 export default PanelGroup;

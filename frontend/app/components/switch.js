@@ -21,7 +21,7 @@ Switch.defaultProps = {
   on: false,
   handleClick: () => {},
   enabled: true,
-  className: '',
+  dynamicId: 00,
 };
 
 export default Switch;

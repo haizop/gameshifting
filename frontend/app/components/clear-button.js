@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 const ClearButton = (props) => {
 
   return (
-    <Button color="primary" onClick={() => {props.handleClick(parseInt(props.panelId))}}>Clear Dynamics</Button>
+    <Button color="primary" onClick={() => {props.handleClick(props.panelId)}}>Clear Dynamics</Button>
   );
 }
 

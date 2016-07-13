@@ -25,12 +25,14 @@ const Board = (props) => {
 }
 
 Board.propTypes = {
+  name: React.PropTypes.string,
   panelGroups: React.PropTypes.array,
   toggleDynamic: React.PropTypes.func,
   clearPanel: React.PropTypes.func
 }
 
 Board.defaultProps = {
+  name: '',
   panelGroups: [],
   toggleDynamic: () => {},
   clearPanel: () => {},
