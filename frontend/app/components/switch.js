@@ -20,8 +20,7 @@ Switch.propTypes = {
 Switch.defaultProps = {
   on: false,
   handleClick: () => {},
-  enabled: true,
-  dynamicId: 00,
+  enabled: true
 };
 
 export default Switch;

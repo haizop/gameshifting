@@ -10,7 +10,6 @@ const Board = (props) => {
     return (<PanelGroup
       key={panelGroup.id}
       name={panelGroup.name}
-      placement={panelGroup.placement}
       description={panelGroup.description}
       panels={panelGroup.panels}
       toggleDynamic={props.toggleDynamic}

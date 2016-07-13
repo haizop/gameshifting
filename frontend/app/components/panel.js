@@ -26,4 +26,21 @@ const Panel = (props) => {
   );
 }
 
+Panel.propTypes = {
+  id: React.PropTypes.number,
+  name: React.PropTypes.string,
+  description: React.PropTypes.string,
+  dynamics: React.PropTypes.array,
+  toggleDynamic: React.PropTypes.func,
+  clearPanel: React.PropTypes.func
+}
+
+Panel.defaultProps = {
+  name: '',
+  description: '',
+  dynamics: [],
+  toggleDynamic: () => {},
+  clearPanel: () => {},
+}
+
 export default Panel;
