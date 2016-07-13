@@ -1,5 +1,6 @@
 import React from 'react';
 import Dynamic from './dynamic';
+import ClearButton from './clear-button';
 import { Card, CardBlock, CardTitle } from 'reactstrap';
 
 const Panel = (props) => {
@@ -17,7 +18,9 @@ const Panel = (props) => {
   return (
     <Card block>
       <CardTitle>{props.name}</CardTitle>
-
+      <ClearButton
+        clearPanel={props.clearPanel}
+        panelId={props.id} />
       {dynamics}
     </Card>
   );

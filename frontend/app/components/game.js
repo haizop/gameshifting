@@ -26,7 +26,8 @@ class Game extends React.Component {
     const newBoard = this.state.board
     newBoard.panelGroups = this.state.board.panelGroups.map((panelGroup) => {
       panelGroup.panels.map((panel) => {
-        if (panel.id === panelId) {
+        console.log(panelId);
+        if (panel.id == panelId) {
           panel.dynamics.map((dynamic) => {
             dynamic.active = "false";
             return dynamic;
@@ -58,7 +59,7 @@ class Game extends React.Component {
       contentType: 'application/json; charset=UTF-8',
       data: JSON.stringify(gameState),
       url: '/v1/game_states',
-      success: console.log('success'),
+      success: console.log('state posted'),
       error: (xhr, status, err) => {
         console.error(this.props.url, status, err.toString());
       }

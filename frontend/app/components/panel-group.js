@@ -7,10 +7,12 @@ const PanelGroup = (props) => {
   const panels = props.panels.map((panel) => {
     return (<Panel
       key={panel.id}
+      id={panel.id}
       name={panel.name}
       description={panel.description}
       dynamics={panel.dynamics}
-      toggleDynamic={props.toggleDynamic} />);
+      toggleDynamic={props.toggleDynamic}
+      clearPanel={props.clearPanel} />);
   });
 
   return(
