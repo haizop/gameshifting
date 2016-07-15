@@ -15,15 +15,21 @@ const Panel = (props) => {
       toggleDynamic={props.toggleDynamic} />);
   });
 
+  // const showClearButton = dynamics.reduce((isActive, nextDynamic) => {
+  //   if (isActive.props.active == "true") {
+  //     return true
+  //   } else {return nextDynamic.props.active}
+  // });
+  //
+  // console.log(showClearButton);
+
   return (
     <Card block>
       <CardTitle>
         {props.name}
-        <div className="pull-right">
-          <ClearButton
-            handleClick={props.clearPanel}
-            targetId={props.id} />
-        </div>
+        <ClearButton
+          handleClick={props.clearPanel}
+          targetId={props.id} />
       </CardTitle>
       {dynamics}
     </Card>
